@@ -32,13 +32,26 @@ android {
     }
 }
 
+apply plugin: 'kotlin-kapt' // it's from a different location, so this is needed for below
+
+
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.core:core-ktx:1.9.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.8.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation 'androidx.room:room-common:2.5.0'
+    implementation 'androidx.room:room-common:2.5.1'
+
+//    Additional dependencies start
+    implementation 'androidx.room:room-ktx:2.5.1'
+    implementation 'androidx.lifecycle:lifecycle-livedata:2.6.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4' // had to be typed in manually
+
+    kapt 'androidx.room:room-compiler:2.5.1' // Kotlin Annotation Processing Tool
+
+//    end additional
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
